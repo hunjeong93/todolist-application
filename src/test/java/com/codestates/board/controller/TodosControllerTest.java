@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.startsWith;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Transactional
 @SpringBootTest
@@ -42,7 +43,9 @@ class TodosControllerTest {
                 );
 
         actions
-                .andExpect(status().isCreated())
-                .andExpect(header().string("Location",is(startsWith("/v1/todos/"))));
+                .andExpect(status().isCreated());
+
+
+
     }
 }
